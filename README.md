@@ -1,16 +1,46 @@
-# layout_components
+# Flutter 布局组件示例
 
-A new Flutter project.
+本项目演示了 Flutter 中常用的两种布局方式：**线性布局（Column/Row）** 和 **层叠布局（Stack/Positioned）**。
+![](data:image/png;base64,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)
+## 目录结构
 
-## Getting Started
+```
+lib/
+├── main.dart         // 入口文件，布局选择页面
+├── Column.dart       // 线性布局示例
+└── Stack.dart        // 层叠布局示例
+```
 
-This project is a starting point for a Flutter application.
+## 如何运行
 
-A few resources to get you started if this is your first Flutter project:
+1. 确保已安装 Flutter 环境。
+2. 在项目根目录下运行：
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   ```sh
+   flutter pub get
+   flutter run
+   ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. 启动后，主页面会显示两个按钮：
+   - **线性布局示例**：展示 Column 和 Row 的用法。
+   - **层叠布局示例**：展示 Stack 和 Positioned 的用法。
+
+## 示例说明
+
+### 线性布局（Column/Row）
+
+- 入口：`lib/Column.dart`
+- 使用 Column 实现纵向排列，Row 实现横向排列。
+
+### 层叠布局（Stack/Positioned）
+
+- 入口：`lib/Stack.dart`
+- 使用 Stack 实现子组件的层叠，Positioned 实现绝对定位。
+
+## 效果截图
+
+> 可自行运行查看实际效果。
+
+---
+
+如需扩展更多布局示例，可参考 Flutter 官方文档：[Flutter
